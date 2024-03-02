@@ -129,7 +129,9 @@ def mostrar_consultMov (conn):
     cursor = conn.cursor()
     cursor.execute("select *from consult_movimiento")
     for row in cursor:
-       print(row)
+       consulta1= (row[0], row[1], row[2], row[3])
+       consulta2= [consulta1] 
+    print (tabulate(consulta2, headers= ["ID", "CEDULA","RETIROS", "CONSIGNACIONES" ]))
          
 def intoConsult_mov(conn):
     
