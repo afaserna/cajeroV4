@@ -155,8 +155,12 @@ def retirar(conn):
     reti = int (input("solo valores >=10.000: "))
     if reti <= 50000:
         te_quedan = consi - reti 
-        print("retiraste: " , reti)
-        print("tu nuevo saldo es: ", te_quedan)
+        a = consi
+        b= reti
+        c= te_quedan
+        consulta3 = (a,b,c)
+        consulta4 = [consulta3]
+        print(tabulate(consulta4, headers=["consignaciones", "retiros", "saldo"]))
         cursor = conn.cursor()
         cursor.execute("INSERT INTO consult_movimiento (Id_conMov, cedula_user1, retiro, consignar, consult_mov, consult_saldo ) values(?,?,?,?,?,?)", (3, 71379025, reti, 0, 'consulta', 0))
         cursor.close()
